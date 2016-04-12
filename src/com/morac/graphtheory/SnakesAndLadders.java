@@ -1,4 +1,4 @@
-package graphtheory;
+package com.morac.graphtheory;
 
 import java.util.LinkedList;
 import java.util.Scanner;

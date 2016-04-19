@@ -1,4 +1,4 @@
-package com.morac.ProjectEuler;
+package com.morac.projecteulerplus;
 
 /**
  * Created by Claudio Morales on 19/04/2016.

@@ -1,4 +1,4 @@
-package com.morac.ProjectEuler;
+package com.morac.projecteulerplus;
 
 import java.util.Scanner;
 import java.util.TreeSet;

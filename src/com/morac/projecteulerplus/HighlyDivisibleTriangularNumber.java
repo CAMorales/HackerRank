@@ -25,10 +25,10 @@ public class HighlyDivisibleTriangularNumber {
         }
     }
 
-    private static int countFactors(int triangle){
-        int temp=triangle;
+    private static int countFactors(int number){
+        int temp=number;
         int factors=1, power;
-        for (int i = 0; primos.get(i)*primos.get(i)<=triangle; i++) {
+        for (int i = 0; primos.get(i)*primos.get(i)<=number; i++) {
             power=0;
             while(temp%primos.get(i)==0){
                 temp /= primos.get(i);

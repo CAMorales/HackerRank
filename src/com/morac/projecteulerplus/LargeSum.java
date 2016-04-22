@@ -1,5 +1,6 @@
 package com.morac.projecteulerplus;
 
+import java.math.BigInteger;
 import java.util.Scanner;
 
 /**
@@ -8,12 +9,11 @@ import java.util.Scanner;
 public class LargeSum {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int n= in.nextInt();
-        long result=0;
-        String nums[] = new String[n];
-        for (int i = 0; i < n; i++) {
-            nums[i]=in.next();
+        int n= in.nextInt()-1;
+        BigInteger num = new BigInteger(in.next());
+        while(n-->0){
+            num = num.add(new BigInteger(in.next()));
         }
-        System.out.println(result);
+        System.out.println(num.toString().substring(0,10));
     }
 }

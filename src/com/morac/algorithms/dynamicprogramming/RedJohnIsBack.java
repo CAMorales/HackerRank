@@ -26,41 +26,18 @@ public class RedJohnIsBack {
             }
         }
     }
-    private static long getNumberOfWays(int coins[],int k){
-        int n=coins.length;
-        long res[][]= new long[n+1][k+1];
-        // if amount=0 then just return empty set to make the change
-        for (int i = 0; i <= n; i++) {
-            res[i][0]=1;
-        }
-        // if no coins given, 0 ways to change the amount
-        for (int i = 1; i <=k ; i++) {
-            res[0][i]=0;
-        }
 
-        // now fill rest of the matrix.
 
-        for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= k; j++) {
-                if (coins[i - 1] <= j) {
-                    res[i][j]=res[i-1][j]+res[i][j-coins[i-1]];
-                }else{
-                    res[i][j]=res[i-1][j];
-                }
-            }
-        }
-        return res[n][k];
-    }
     public static void main(String[] args) {
-        generatePrimes(101);
+        generatePrimes(103);
         int coins[]={1,4};
-        int k, res;
+        int change, res;
         long number;
         Scanner in = new Scanner(System.in);
         int t = in.nextInt();
         while (t-->0){
-            k=in.nextInt();
-            number=getNumberOfWays(coins,k );
+            change=in.nextInt();
+            number=TheCoinChangeProblem.getDiffWaysToMakeChangeFromCoins(coins, change);
             res=0;
             while(primos.get(res)<=number){
                 res++;

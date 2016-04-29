@@ -6,28 +6,59 @@ import java.util.Scanner;
  * Created by azazel on 27/04/16.
  */
 public class TheCoinChangeProblem {
+
+    public static long getDiffWaysToMakeChangeFromCoins(int coins[], int change) {
+        int numberOfCoins=coins.length;
+        long arrayOfChanges[][] = new long[numberOfCoins+1][change + 1];
+
+        // if amount=0 then just return empty set to make the change
+        for (int i = 0; i <= numberOfCoins; i++) {
+            arrayOfChanges[i][0]=1;
+        }
+
+        // if no coins given, 0 ways to change the amount
+        for (int i = 1; i <=change; i++) {
+            arrayOfChanges[0][i]=0;
+        }
+
+        // now fill rest of the matrix.
+        for (int i = 1; i <= numberOfCoins; i++) {
+            for (int j = 1; j <= change; j++) {
+                // check if the coin value is less than the amount needed
+                if (coins[i-1]<=j){
+                    // reduce the amount by coin value and
+                    // use the subproblem solution (amount-v[i]) and
+                    // add the solution from the top to it
+                    arrayOfChanges[i][j]=arrayOfChanges[i-1][j]+arrayOfChanges[i][j-coins[i-1]];
+                }else{
+                    // just copy the value from the top
+                    arrayOfChanges[i][j]=arrayOfChanges[i-1][j];
+                }
+            }
+        }
+        return arrayOfChanges[numberOfCoins][change];
+    }
+
     public static void main(String[] args) {
-        int n,k, total=0;
+        int n,change;
         int coins[];
-        long res[][];
         int flag;
         Scanner in = new Scanner(System.in);
         flag=0;
-        k=in.nextInt();
+        change=in.nextInt();
         n=in.nextInt();
         coins=new int[n];
-        res=new long[n+1][k+1];
         for (int i = 0; i < n; i++) {
             coins[i]=in.nextInt();
-            if (coins[i]>k){
+            if (coins[i]>change){
                 flag++;
             }
         }
-        if (flag==n || k==0){
+        if (flag==n || change==0){
             System.out.println(0);
             return;
         }
-        // if amount=0 then just return empty set to make the change
+        /*// if amount=0 then just return empty set to make the change
         for (int i = 0; i <= n; i++) {
             res[i][0]=1;
         }
@@ -51,7 +82,7 @@ public class TheCoinChangeProblem {
                     res[i][j]=res[i-1][j];
                 }
             }
-        }
-        System.out.println(res[n][k]);
+        }*/
+        System.out.println(getDiffWaysToMakeChangeFromCoins(coins, change));
     }
 }

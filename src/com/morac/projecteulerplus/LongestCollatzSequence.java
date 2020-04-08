@@ -7,38 +7,38 @@ import java.util.Scanner;
  */
 public class LongestCollatzSequence {
 
-    private static final int size=5000002;
+    private static final int size = 5000002;
 
-    private static long terms[] = new long[size];
+    private static long[] terms = new long[size];
 
-    private static void initTerms(){
+    private static void initTerms() {
         int count;
         long k;
         for (int i = 1; i < size; i++) {
-            count=0;
-            k=i;
-            while (k>1){
-                if (k<i){
-                    count+=terms[(int)k];
-                    k=1;
-                }else{
+            count = 0;
+            k = i;
+            while (k > 1) {
+                if (k < i) {
+                    count += terms[(int) k];
+                    k = 1;
+                } else {
                     ++count;
-                    if (k%2==0){
-                        k/=2;
-                    }else{
-                        k=3*k+1;
+                    if (k % 2 == 0) {
+                        k /= 2;
+                    } else {
+                        k = 3 * k + 1;
                     }
                 }
             }
-            terms[i]=count;
+            terms[i] = count;
         }
-        long max=1,maxIdx=0;
+        long max = 1, maxIdx = 0;
         for (int i = 1; i < size; i++) {
-            if (terms[i]>=max){
-                max=terms[i];
-                maxIdx=i;
+            if (terms[i] >= max) {
+                max = terms[i];
+                maxIdx = i;
             }
-            terms[i]=maxIdx;
+            terms[i] = maxIdx;
         }
     }
 
@@ -46,8 +46,8 @@ public class LongestCollatzSequence {
         initTerms();
 
         Scanner in = new Scanner(System.in);
-        int t= in.nextInt();
-        while (t-->0){
+        int t = in.nextInt();
+        while (t-- > 0) {
             System.out.println(terms[in.nextInt()]);
         }
     }

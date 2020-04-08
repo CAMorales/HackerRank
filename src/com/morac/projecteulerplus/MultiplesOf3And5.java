@@ -13,15 +13,15 @@ public class MultiplesOf3And5 {
             (number*n*(n+1))/2
         */
         Scanner in = new Scanner(System.in);
-        int t= in.nextInt();
+        int t = in.nextInt();
         long num;
-        long tres,cinco,quince;
-        while(t-->0){
-            num=in.nextLong()-1;
-            tres=num/3;
-            cinco=num/5;
-            quince=num/15;
-            System.out.println((3*(tres*(tres+1))+5*(cinco*(cinco+1))-15*(quince*(quince+1)))/2);
+        long tres, cinco, quince;
+        while (t-- > 0) {
+            num = in.nextLong() - 1;
+            tres = num / 3;
+            cinco = num / 5;
+            quince = num / 15;
+            System.out.println((3 * (tres * (tres + 1)) + 5 * (cinco * (cinco + 1)) - 15 * (quince * (quince + 1))) / 2);
         }
     }
 }

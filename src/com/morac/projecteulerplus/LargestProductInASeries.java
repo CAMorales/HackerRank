@@ -7,22 +7,22 @@ import java.util.Scanner;
  */
 public class LargestProductInASeries {
     public static void main(String[] args) {
-        long n,k, res, mult;
+        long n, k, res, mult;
         String line;
         Scanner in = new Scanner(System.in);
         int t = in.nextInt();
-        while(t-->0){
-            n=in.nextLong();
-            k=in.nextLong();
-            line=in.next();
-            res=0;
+        while (t-- > 0) {
+            n = in.nextLong();
+            k = in.nextLong();
+            line = in.next();
+            res = 0;
             for (int i = 0; i < n - k; i++) {
-                mult=1;
+                mult = 1;
                 for (int j = 0; j < k; j++) {
-                    mult*=line.charAt(i+j)-48;
+                    mult *= line.charAt(i + j) - 48;
                 }
-                if (mult>res){
-                    res=mult;
+                if (mult > res) {
+                    res = mult;
                 }
             }
             System.out.println(res);

@@ -51,7 +51,7 @@ public class NumberToWords {
 
         private static String convertLessThanOneThousand(int number) {
             String soFar;
-            int modulusOneHundred=number%100;
+            int modulusOneHundred = number % 100;
 
             if (modulusOneHundred < 20) {
                 soFar = numNames[modulusOneHundred];
@@ -101,9 +101,9 @@ public class NumberToWords {
 //                    tradBillions = convertLessThanOneThousand(billions)
 //                            + " Billion ";
 //            }
-            if (billions==0){
+            if (billions == 0) {
                 tradBillions = "";
-            }else{
+            } else {
                 tradBillions = convertLessThanOneThousand(billions) + " Billion ";
             }
             String result = tradBillions;
@@ -122,9 +122,9 @@ public class NumberToWords {
 //                            + " Million ";
 //            }
 
-            if (millions==0){
+            if (millions == 0) {
                 tradMillions = "";
-            }else{
+            } else {
                 tradMillions = convertLessThanOneThousand(millions) + " Million ";
             }
             result = result + tradMillions;
@@ -155,7 +155,7 @@ public class NumberToWords {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int t = in.nextInt();
-        while (t-->0){
+        while (t-- > 0) {
             System.out.println(EnglishNumberToWords.convert(in.nextLong()));
         }
     }

@@ -25,7 +25,7 @@ public class BalancedParentheses {
                 default:
                     if (stack.isEmpty())
                         return false;
-                   if(map.get(stack.pop()).charValue() != parentheses.charAt(i))
+                   if(map.get(stack.pop()) != parentheses.charAt(i))
                        return false;
             }
         }

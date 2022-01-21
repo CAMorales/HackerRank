@@ -22,7 +22,7 @@ public class ArrayManipulation {
         }
         for (long num : nums) {
             temp += num;
-            maxNum = temp > maxNum ? temp : maxNum;
+            maxNum = Math.max(temp, maxNum);
         }
         System.out.println(maxNum);
     }
